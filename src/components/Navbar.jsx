@@ -2,15 +2,8 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = React.useState(false);
   const [activeLink, setActiveLink] = React.useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     { name: "Home", path: "/home" },
@@ -37,9 +30,7 @@ const Navbar = () => {
 
   return (
     <motion.div
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-lg"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}

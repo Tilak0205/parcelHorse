@@ -59,25 +59,74 @@ const SelectWithInput = ({ label, selectOptions, inputPlaceholder }) => (
 const HeroSection = () => {
   return (
     <>
-      {/* Large Screen Layout (unchanged) */}
+      {/* Large Screen Layout */}
       <div className="hidden md:block relative flex h-screen content-center items-center justify-center pt-0 pb-32">
-        {/* <div className="absolute top-0 h-full w-full bg-[url('/img/home-background-ph.jpg')] bg-cover bg-center opacity-90"></div> */}
-        <div className="absolute top-0 h-full w-full bg-white/20"></div>
+        {/* Background Vector Image */}
+        <div 
+          className="absolute top-0 right-0 w-1/2 h-[80%] bg-contain bg-no-repeat bg-right-top z-[1]"
+          style={{ 
+            backgroundImage: 'url("/img/homepage-vector.svg")',
+            opacity: 0.6
+          }}
+        />
+        {/* Delivery Boy Image Overlay */}
+        <motion.div 
+          className="absolute top-[-5%] right-[1%] w-[600px] h-[600px] z-[8]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/img/delivery-boy-homepage.png"
+              alt="Delivery Boy"
+              className="w-full h-full object-contain filter brightness-105 contrast-105 drop-shadow-2xl"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))',
+                maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
+              }}
+            />
+          </div>
+        </motion.div>
+        {/* Delivery Boy Hand Only Overlay */}
+        <motion.div 
+          className="absolute top-[-5%] right-[1%] w-[600px] h-[600px] z-[20]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/img/delivery-boy-hand-only-no-sleeve.png"
+              alt="Delivery Boy Hand"
+              className="w-full h-full object-contain filter brightness-105 contrast-105 saturate-105 drop-shadow-2xl"
+              style={{
+                // filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))',
+                mixBlendMode: 'normal',
+                maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
+              }}
+            />
+          </div>
+        </motion.div>
+        <div className="absolute top-0 h-full w-full bg-white/5 z-[2]"></div>
 
-        <div className="max-w-8xl container relative mx-auto">
+        <div className="max-w-8xl container relative mx-auto z-[15]">
           <div className="flex flex-col items-center">
             {/* Heading Section */}
-            <div className="w-full text-center px-6 mb-12">
+            <div className="w-full px-6 mb-6 self-start">
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.8 }}
+                className="max-w-2xl"
               >
                 <Typography
                   variant="h1"
                   style={{ color: "#014AB2" }}
-                  className="mb-8 mt-32 font-black text-5xl md:text-6xl"
+                  className="mb-6 mt-20 font-black text-5xl md:text-6xl text-left"
                 >
                   Trusted Logistics Partner
                 </Typography>
@@ -87,10 +136,11 @@ const HeroSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ delay: 0.2, duration: 0.8 }}
+                className="max-w-2xl"
               >
                 <Typography
                   style={{ color: "#4178C6" }}
-                  className="opacity-80 text-xl md:text-2xl leading-relaxed mb-12"
+                  className="opacity-80 text-xl md:text-2xl leading-relaxed mb-6 text-left"
                 >
                   Ensure your parcels reach their destination safely and on time.
                 </Typography>
@@ -98,28 +148,28 @@ const HeroSection = () => {
             </div>
 
             {/* Form Section */}
-            <div className="w-full max-w-5xl p-0 mt-20">
+            <div className="w-full max-w-7xl mx-auto px-6">
               <motion.div
-                className="bg-white/30 backdrop-blur-md p-4 border border-white/50 shadow-xl rounded-2xl"
+                className="bg-white/30 backdrop-blur-md p-6 border border-white/50 shadow-xl rounded-2xl w-full"
                 whileHover={{ boxShadow: "0 20px 40px rgba(1, 74, 178, 0.1)" }}
               >
                 <Typography
                   variant="h3"
-                  className="mb-3 font-bold text-center text-lg text-[#014AB2]"
+                  className="mb-4 font-bold text-center text-xl text-[#014AB2]"
                 >
                   Quick Enquiry
                 </Typography>
 
                 {/* Form Content */}
-                <form className="space-y-3">
+                <form className="space-y-4">
                   {/* Sending To/From Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
+                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
                         Sending To
                       </label>
-                      <div className="flex gap-1">
-                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
+                      <div className="flex gap-3">
+                        <select className="border border-[#014AB2]/20 rounded-md p-2 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="us">United States</option>
                           <option value="uk">United Kingdom</option>
                           <option value="in">India</option>
@@ -127,16 +177,16 @@ const HeroSection = () => {
                         <input
                           type="text"
                           placeholder="Postcode"
-                          className="border border-[#014AB2]/20 rounded-md p-1.5 w-24 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-2 w-36 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
+                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
                         Sending From
                       </label>
-                      <div className="flex gap-1">
-                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
+                      <div className="flex gap-3">
+                        <select className="border border-[#014AB2]/20 rounded-md p-2 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="us">United States</option>
                           <option value="uk">United Kingdom</option>
                           <option value="in">India</option>
@@ -144,73 +194,73 @@ const HeroSection = () => {
                         <input
                           type="text"
                           placeholder="Postcode"
-                          className="border border-[#014AB2]/20 rounded-md p-1.5 w-24 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-2 w-36 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Measurements Row */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                     <div>
-                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
+                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
                         Weight
                       </label>
-                      <div className="flex gap-1">
+                      <div className="flex gap-3">
                         <input
                           type="number"
                           placeholder="0.00"
-                          className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-2 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
-                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 w-16 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
+                        <select className="border border-[#014AB2]/20 rounded-md p-2 w-24 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="kg">kg</option>
                           <option value="lb">lb</option>
                         </select>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
+                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
                         Length
                       </label>
-                      <div className="flex gap-1">
+                      <div className="flex gap-3">
                         <input
                           type="number"
                           placeholder="0.00"
-                          className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-2 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
-                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 w-16 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
+                        <select className="border border-[#014AB2]/20 rounded-md p-2 w-24 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="cm">cm</option>
                           <option value="in">in</option>
                         </select>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
+                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
                         Width
                       </label>
-                      <div className="flex gap-1">
+                      <div className="flex gap-3">
                         <input
                           type="number"
                           placeholder="0.00"
-                          className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-2 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
-                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 w-16 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
+                        <select className="border border-[#014AB2]/20 rounded-md p-2 w-24 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="cm">cm</option>
                           <option value="in">in</option>
                         </select>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
+                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
                         Height
                       </label>
-                      <div className="flex gap-1">
+                      <div className="flex gap-3">
                         <input
                           type="number"
                           placeholder="0.00"
-                          className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-2 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
-                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 w-16 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
+                        <select className="border border-[#014AB2]/20 rounded-md p-2 w-24 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="cm">cm</option>
                           <option value="in">in</option>
                         </select>
@@ -219,10 +269,10 @@ const HeroSection = () => {
                   </div>
 
                   {/* Buttons Row */}
-                  <div className="flex flex-col md:flex-row justify-center gap-2 pt-3">
+                  <div className="flex flex-col md:flex-row justify-center gap-4 pt-6">
                     <motion.button
                       type="reset"
-                      className="bg-gray-500/80 backdrop-blur-sm text-white py-1.5 px-4 rounded-md font-medium transition-all duration-300 shadow-md text-xs"
+                      className="bg-gray-500/80 backdrop-blur-sm text-white py-2 px-8 rounded-md font-medium transition-all duration-300 shadow-md text-sm"
                       whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -230,7 +280,7 @@ const HeroSection = () => {
                     </motion.button>
                     <motion.button
                       type="button"
-                      className="bg-[#014AB2]/80 backdrop-blur-sm text-white py-1.5 px-4 rounded-md font-medium transition-all duration-300 shadow-md text-xs"
+                      className="bg-[#014AB2]/80 backdrop-blur-sm text-white py-2 px-8 rounded-md font-medium transition-all duration-300 shadow-md text-sm"
                       whileHover={{
                         scale: 1.05,
                         boxShadow: "0 5px 15px rgba(1,74,178,0.3)",
@@ -241,7 +291,7 @@ const HeroSection = () => {
                     </motion.button>
                     <motion.button
                       type="submit"
-                      className="bg-green-500/80 backdrop-blur-sm text-white py-1.5 px-4 rounded-md font-medium transition-all duration-300 shadow-md text-xs"
+                      className="bg-green-500/80 backdrop-blur-sm text-white py-2 px-8 rounded-md font-medium transition-all duration-300 shadow-md text-sm"
                       whileHover={{
                         scale: 1.05,
                         boxShadow: "0 5px 15px rgba(34,197,94,0.3)",
@@ -260,14 +310,61 @@ const HeroSection = () => {
 
       {/* Small Screen Layout */}
       <div className="block md:hidden relative flex flex-col items-center justify-center pt-16 pb-32">
-        {/* Background Image */}
-        <div className="absolute top-0 h-full w-full bg-[url('/img/home-background-ph.jpg')] bg-cover bg-center opacity-90"></div>
-        <div className="absolute top-0 h-full w-full bg-white/20"></div>
+        {/* Background Vector Image for Mobile */}
+        <div 
+          className="absolute top-0 right-0 w-2/3 h-[80%] bg-contain bg-no-repeat bg-right-top z-[1]"
+          style={{ 
+            backgroundImage: 'url("/img/homepage-vector.svg")',
+            opacity: 0.6
+          }}
+        />
+        {/* Mobile Delivery Boy Image Overlay */}
+        <motion.div 
+          className="absolute top-[0%] right-[2%] w-[300px] h-[300px] z-[8]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/img/delivery-boy-homepage.png"
+              alt="Delivery Boy"
+              className="w-full h-full object-contain filter brightness-105 contrast-105 drop-shadow-2xl"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))',
+                maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
+              }}
+            />
+          </div>
+        </motion.div>
+        {/* Delivery Boy Hand Only Overlay Mobile */}
+        <motion.div 
+          className="absolute top-[0%] right-[2%] w-[300px] h-[300px] z-[9]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative w-full h-full">
+            <img
+              src="/img/delivery-boy-hand-only.png"
+              alt="Delivery Boy Hand"
+              className="w-full h-full object-contain filter brightness-105 contrast-105 saturate-105 drop-shadow-2xl"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))',
+                mixBlendMode: 'normal',
+                maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
+              }}
+            />
+          </div>
+        </motion.div>
+        <div className="absolute top-0 h-full w-full bg-white/5 z-[2]"></div>
 
         {/* Content Container */}
-        <div className="container relative mx-auto px-4">
+        <div className="container relative mx-auto px-4 z-[15]">
           {/* Heading Section */}
-          <div className="w-full text-center mb-8">
+          <div className="w-full mb-4">
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -277,7 +374,7 @@ const HeroSection = () => {
               <Typography
                 variant="h1"
                 style={{ color: "#014AB2" }}
-                className="mb-4 font-black text-3xl sm:text-4xl"
+                className="mb-4 font-black text-3xl sm:text-4xl text-left"
               >
                 Trusted Logistics Partner
               </Typography>
@@ -290,7 +387,7 @@ const HeroSection = () => {
             >
               <Typography
                 style={{ color: "#4178C6" }}
-                className="opacity-80 text-base sm:text-lg leading-relaxed"
+                className="opacity-80 text-base sm:text-lg leading-relaxed text-left"
               >
                 Ensure your parcels reach their destination safely and on time.
               </Typography>
@@ -298,7 +395,7 @@ const HeroSection = () => {
           </div>
 
           {/* Form Section */}
-          <div className="w-full mt-8">
+          <div className="w-full max-w-xl mx-auto mt-4">
             <motion.div
               className="bg-white/30 backdrop-blur-md p-6 border border-white/50 shadow-xl rounded-2xl"
               whileHover={{ boxShadow: "0 20px 40px rgba(1, 74, 178, 0.1)" }}
