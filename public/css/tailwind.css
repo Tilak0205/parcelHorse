@@ -1,0 +1,351 @@
+@import "@fontsource/inter";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "@fontsource/inter";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    position: relative;
+  }
+
+  /* Add subtle highlight effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    ); */
+    pointer-events: none;
+  }
+}
+
+/* Hide scrollbar */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite; /* Adjust the time (40s) as per your desired speed */
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* index.css or App.css */
+/* body {
+  font-family: "Inter", sans-serif;
+} */
+
+body {
+  font-family: 'Inter', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  /* Add mesh gradient background */
+  /* background: 
+    radial-gradient(at 40% 20%, rgba(255, 252, 0, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(255, 252, 0, 0.13) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(255, 255, 255, 0.9) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(1, 74, 178, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(255, 252, 0, 0.2) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(255, 255, 255, 0.9) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgba(255, 252, 0, 0.15) 0px, transparent 50%); */
+    
+  background-attachment: fixed; /* This keeps the gradient fixed while scrolling */
+}
+
+/* Optional: Add a subtle animation to make it more dynamic */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+body {
+  animation: gradientAnimation 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+.card-container {
+  perspective: 1200px;
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  height: 136px;
+  transform-style: preserve-3d;
+  animation: unfoldAndWave 12s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  background: transparent;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.front img,
+.back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: left;
+  animation: textureWave 4s ease-in-out infinite;
+  background: transparent;
+}
+
+/* Main unfold and wave animation */
+@keyframes unfoldAndWave {
+  0% {
+    transform: rotateY(90deg) rotateX(30deg) rotateZ(0deg) scaleX(0.1);
+  }
+  15% {
+    transform: rotateY(45deg) rotateX(15deg) rotateZ(0deg) scaleX(0.5);
+  }
+  30% {
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scaleX(1);
+  }
+  40% {
+    transform: rotateY(20deg) rotateX(5deg) rotateZ(2deg) scaleX(1);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(-2deg) rotateZ(-1deg) scaleX(1);
+  }
+  60% {
+    transform: rotateY(200deg) rotateX(5deg) rotateZ(2deg) scaleX(1);
+  }
+  70% {
+    transform: rotateY(360deg) rotateX(0deg) rotateZ(0deg) scaleX(1);
+  }
+  80% {
+    transform: rotateY(380deg) rotateX(10deg) rotateZ(5deg) scaleX(0.8);
+  }
+  90% {
+    transform: rotateY(405deg) rotateX(20deg) rotateZ(10deg) scaleX(0.4);
+  }
+  100% {
+    transform: rotateY(450deg) rotateX(30deg) rotateZ(0deg) scaleX(0.1);
+  }
+}
+
+/* Texture wave animation */
+@keyframes textureWave {
+  0% {
+    transform: scaleX(1) skewX(0deg) skewY(0deg);
+  }
+  25% {
+    transform: scaleX(0.95) skewX(5deg) skewY(2deg);
+  }
+  50% {
+    transform: scaleX(0.98) skewX(-3deg) skewY(-1deg);
+  }
+  75% {
+    transform: scaleX(0.95) skewX(5deg) skewY(2deg);
+  }
+  100% {
+    transform: scaleX(1) skewX(0deg) skewY(0deg);
+  }
+}
+
+/* Enhanced ripple effect */
+.front::after,
+.back::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 45%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.2) 55%,
+    transparent 100%
+  );
+  animation: ripple 4s linear infinite;
+}
+
+@keyframes ripple {
+  0% {
+    background-position: -200% -200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+/* Dynamic shadow */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 5%;
+  width: 90%;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  filter: blur(10px);
+  animation: shadowFold 12s ease-in-out infinite;
+}
+
+@keyframes shadowFold {
+  0%, 100% {
+    transform: scaleX(0.2) translateX(-50%);
+    opacity: 0.3;
+  }
+  30% {
+    transform: scaleX(1) translateX(0);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scaleX(1) translateX(0);
+    opacity: 0.6;
+  }
+  90% {
+    transform: scaleX(0.2) translateX(50%);
+    opacity: 0.3;
+  }
+}
+
+/* Hover effects */
+.card-container:hover .card {
+  animation-play-state: paused;
+}
+
+.card-container:hover .front::after,
+.card-container:hover .back::after {
+  animation-play-state: paused;
+}
+
+/* Blue accent border */
+.blue-accent-border {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, #014AB2, #0165f5) border-box;
+  border-radius: 15px;
+}
+
+/* Glowing effect */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #014AB2, #0165f5);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::after {
+  opacity: 0.6;
+}
+
+/* Enhanced card styles */
+.card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Glass effect for components */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* Diagonal stripe pattern */
+.diagonal-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 252, 0, 0.05) 10px,
+    rgba(255, 252, 0, 0.05) 20px
+  );
+}
+
+/* Yellow dot pattern */
+.dot-pattern {
+  background-image: radial-gradient(
+    rgba(255, 252, 0, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}

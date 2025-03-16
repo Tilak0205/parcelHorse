@@ -1,0 +1,129 @@
+<div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
+        <div className="absolute top-0 h-full w-full bg-[url('/img/home-background-ph.jpg')] bg-cover bg-center opacity-90"></div>
+        <div className="absolute top-0 h-full w-full bg-white/20"></div>
+
+        <div className="max-w-8xl container relative mx-auto">
+          {/* Combined Heading and Form Section */}
+          <div className="flex flex-col items-center">
+            {/* Heading Section */}
+            <div className="w-full text-center px-6 mb-12">
+              <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8 }}
+              >
+                <Typography
+                  variant="h1"
+                  style={{ color: "#014AB2" }}
+                  className="mb-8 mt-40 font-black text-5xl md:text-6xl"
+                >
+                  Trusted Logistics Partner
+                </Typography>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                <Typography
+                  style={{ color: "#4178C6" }}
+                  className="opacity-80 text-xl md:text-2xl leading-relaxed mb-12"
+                >
+                  Ensure your parcels reach their destination safely and on time.
+                </Typography>
+              </motion.div>
+            </div>
+
+            {/* Form Section */}
+            <div className="w-full max-w-8xl p-0 pb-20">
+              <motion.div
+                className="bg-white/30 backdrop-blur-md p-18 border border-white/50 shadow-xl rounded-2xl"
+                whileHover={{ boxShadow: "0 20px 40px rgba(1, 74, 178, 0.1)" }}
+              >
+                <Typography
+                  variant="h3"
+                  className="mb-8 mt-4 font-bold text-center text-2xl text-[#014AB2]"
+                >
+                  Quick Enquiry
+                </Typography>
+
+                <form className="space-y-8 m-4">
+                  {/* Sending To/From Row */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <SelectWithInput
+                      label="Sending To"
+                      selectOptions={countryOptions}
+                      inputPlaceholder="Postcode"
+                    />
+                    <SelectWithInput
+                      label="Sending From"
+                      selectOptions={countryOptions}
+                      inputPlaceholder="Postcode"
+                    />
+                  </div>
+
+                  {/* Measurements Row */}
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <FieldGroup
+                      label="Weight"
+                      placeholder="0.00"
+                      selectOptions={weightOptions}
+                    />
+                    <FieldGroup
+                      label="Length"
+                      placeholder="0.00"
+                      selectOptions={lengthOptions}
+                    />
+                    <FieldGroup
+                      label="Width"
+                      placeholder="0.00"
+                      selectOptions={lengthOptions}
+                    />
+                    <FieldGroup
+                      label="Height"
+                      placeholder="0.00"
+                      selectOptions={lengthOptions}
+                    />
+                  </div>
+
+                  {/* Buttons Row */}
+                  <div className="flex flex-col md:flex-row justify-center gap-4 pt-4 pb-4">
+                    <motion.button
+                      type="reset"
+                      className="bg-gray-500/80 backdrop-blur-sm text-white py-3 px-8 rounded-xl font-medium transition-all duration-300 shadow-md"
+                      whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Clear Form
+                    </motion.button>
+                    <motion.button
+                      type="button"
+                      className="bg-[#014AB2]/80 backdrop-blur-sm text-white py-3 px-8 rounded-xl font-medium transition-all duration-300 shadow-md"
+                      whileHover={{
+                        scale: 1.05,
+                        boxShadow: "0 5px 15px rgba(1,74,178,0.3)",
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Add Another Parcel
+                    </motion.button>
+                    <motion.button
+                      type="submit"
+                      className="bg-green-500/80 backdrop-blur-sm text-white py-3 px-8 rounded-xl font-medium transition-all duration-300 shadow-md"
+                      whileHover={{
+                        scale: 1.05,
+                        boxShadow: "0 5px 15px rgba(34,197,94,0.3)",
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Get a Quote
+                    </motion.button>
+                  </div>
+                </form>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
