@@ -61,7 +61,7 @@ const HeroSection = () => {
     <>
       {/* Large Screen Layout (unchanged) */}
       <div className="hidden md:block relative flex h-screen content-center items-center justify-center pt-0 pb-32">
-        <div className="absolute top-0 h-full w-full bg-[url('/img/home-background-ph.jpg')] bg-cover bg-center opacity-90"></div>
+        {/* <div className="absolute top-0 h-full w-full bg-[url('/img/home-background-ph.jpg')] bg-cover bg-center opacity-90"></div> */}
         <div className="absolute top-0 h-full w-full bg-white/20"></div>
 
         <div className="max-w-8xl container relative mx-auto">
@@ -77,7 +77,7 @@ const HeroSection = () => {
                 <Typography
                   variant="h1"
                   style={{ color: "#014AB2" }}
-                  className="mb-8 mt-20 font-black text-5xl md:text-6xl"
+                  className="mb-8 mt-32 font-black text-5xl md:text-6xl"
                 >
                   Trusted Logistics Partner
                 </Typography>
@@ -90,7 +90,7 @@ const HeroSection = () => {
               >
                 <Typography
                   style={{ color: "#4178C6" }}
-                  className="opacity-80 text-xl md:text-2xl leading-relaxed mb-6"
+                  className="opacity-80 text-xl md:text-2xl leading-relaxed mb-12"
                 >
                   Ensure your parcels reach their destination safely and on time.
                 </Typography>
@@ -98,28 +98,28 @@ const HeroSection = () => {
             </div>
 
             {/* Form Section */}
-            <div className="w-full max-w-8xl p-0 pb-20">
+            <div className="w-full max-w-5xl p-0 mt-20">
               <motion.div
-                className="bg-white/30 backdrop-blur-md p-8 border border-white/50 shadow-xl rounded-2xl"
+                className="bg-white/30 backdrop-blur-md p-4 border border-white/50 shadow-xl rounded-2xl"
                 whileHover={{ boxShadow: "0 20px 40px rgba(1, 74, 178, 0.1)" }}
               >
                 <Typography
                   variant="h3"
-                  className="mb-8 font-bold text-center text-2xl text-[#014AB2]"
+                  className="mb-3 font-bold text-center text-lg text-[#014AB2]"
                 >
                   Quick Enquiry
                 </Typography>
 
                 {/* Form Content */}
-                <form className="space-y-6">
+                <form className="space-y-3">
                   {/* Sending To/From Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
+                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
                         Sending To
                       </label>
-                      <div className="flex gap-2">
-                        <select className="border-2 border-[#014AB2]/20 rounded-xl p-3 flex-grow bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium transition-all duration-300">
+                      <div className="flex gap-1">
+                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="us">United States</option>
                           <option value="uk">United Kingdom</option>
                           <option value="in">India</option>
@@ -127,16 +127,16 @@ const HeroSection = () => {
                         <input
                           type="text"
                           placeholder="Postcode"
-                          className="border-2 border-[#014AB2]/20 rounded-xl p-3 w-32 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-1.5 w-24 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
+                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
                         Sending From
                       </label>
-                      <div className="flex gap-2">
-                        <select className="border-2 border-[#014AB2]/20 rounded-xl p-3 flex-grow bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium transition-all duration-300">
+                      <div className="flex gap-1">
+                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="us">United States</option>
                           <option value="uk">United Kingdom</option>
                           <option value="in">India</option>
@@ -144,73 +144,73 @@ const HeroSection = () => {
                         <input
                           type="text"
                           placeholder="Postcode"
-                          className="border-2 border-[#014AB2]/20 rounded-xl p-3 w-32 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-1.5 w-24 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Measurements Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                     <div>
-                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
+                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
                         Weight
                       </label>
-                      <div className="flex gap-2">
+                      <div className="flex gap-1">
                         <input
                           type="number"
                           placeholder="0.00"
-                          className="border-2 border-[#014AB2]/20 rounded-xl p-3 flex-grow bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
-                        <select className="border-2 border-[#014AB2]/20 rounded-xl p-3 w-32 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium transition-all duration-300">
+                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 w-16 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="kg">kg</option>
                           <option value="lb">lb</option>
                         </select>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
+                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
                         Length
                       </label>
-                      <div className="flex gap-2">
+                      <div className="flex gap-1">
                         <input
                           type="number"
                           placeholder="0.00"
-                          className="border-2 border-[#014AB2]/20 rounded-xl p-3 flex-grow bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
-                        <select className="border-2 border-[#014AB2]/20 rounded-xl p-3 w-32 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium transition-all duration-300">
+                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 w-16 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="cm">cm</option>
                           <option value="in">in</option>
                         </select>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
+                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
                         Width
                       </label>
-                      <div className="flex gap-2">
+                      <div className="flex gap-1">
                         <input
                           type="number"
                           placeholder="0.00"
-                          className="border-2 border-[#014AB2]/20 rounded-xl p-3 flex-grow bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
-                        <select className="border-2 border-[#014AB2]/20 rounded-xl p-3 w-32 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium transition-all duration-300">
+                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 w-16 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="cm">cm</option>
                           <option value="in">in</option>
                         </select>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#014AB2] text-sm font-semibold mb-2">
+                      <label className="block text-[#014AB2] text-xs font-semibold mb-1">
                         Height
                       </label>
-                      <div className="flex gap-2">
+                      <div className="flex gap-1">
                         <input
                           type="number"
                           placeholder="0.00"
-                          className="border-2 border-[#014AB2]/20 rounded-xl p-3 flex-grow bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
+                          className="border border-[#014AB2]/20 rounded-md p-1.5 flex-grow min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
                         />
-                        <select className="border-2 border-[#014AB2]/20 rounded-xl p-3 w-32 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium transition-all duration-300">
+                        <select className="border border-[#014AB2]/20 rounded-md p-1.5 w-16 min-w-0 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] text-sm font-medium transition-all duration-300">
                           <option value="cm">cm</option>
                           <option value="in">in</option>
                         </select>
@@ -219,10 +219,10 @@ const HeroSection = () => {
                   </div>
 
                   {/* Buttons Row */}
-                  <div className="flex flex-col md:flex-row justify-center gap-4 pt-4 pb-4">
+                  <div className="flex flex-col md:flex-row justify-center gap-2 pt-3">
                     <motion.button
                       type="reset"
-                      className="bg-gray-500/80 backdrop-blur-sm text-white py-3 px-8 rounded-xl font-medium transition-all duration-300 shadow-md"
+                      className="bg-gray-500/80 backdrop-blur-sm text-white py-1.5 px-4 rounded-md font-medium transition-all duration-300 shadow-md text-xs"
                       whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -230,7 +230,7 @@ const HeroSection = () => {
                     </motion.button>
                     <motion.button
                       type="button"
-                      className="bg-[#014AB2]/80 backdrop-blur-sm text-white py-3 px-8 rounded-xl font-medium transition-all duration-300 shadow-md"
+                      className="bg-[#014AB2]/80 backdrop-blur-sm text-white py-1.5 px-4 rounded-md font-medium transition-all duration-300 shadow-md text-xs"
                       whileHover={{
                         scale: 1.05,
                         boxShadow: "0 5px 15px rgba(1,74,178,0.3)",
@@ -241,7 +241,7 @@ const HeroSection = () => {
                     </motion.button>
                     <motion.button
                       type="submit"
-                      className="bg-green-500/80 backdrop-blur-sm text-white py-3 px-8 rounded-xl font-medium transition-all duration-300 shadow-md"
+                      className="bg-green-500/80 backdrop-blur-sm text-white py-1.5 px-4 rounded-md font-medium transition-all duration-300 shadow-md text-xs"
                       whileHover={{
                         scale: 1.05,
                         boxShadow: "0 5px 15px rgba(34,197,94,0.3)",
@@ -594,12 +594,22 @@ const FieldGroup = ({ label, placeholder, selectOptions }) => (
 );
 
 const TestimonialSection = () => {
-  const [showAll, setShowAll] = React.useState(false);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const testimonialRef = React.useRef(null);
+
+  const scrollTestimonials = (direction) => {
+    if (testimonialRef.current) {
+      const scrollAmount = testimonialRef.current.offsetWidth;
+      testimonialRef.current.scrollBy({
+        left: direction === 'next' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
   
   return (
-    <section className="px-4 pt-10 pb-20">
-      <div className="container mx-auto">
-        {/* Headers with responsive text sizes */}
+    <section className="px-4 pt-10 pb-0 relative">
+      <div className="container mx-auto text-center">
         <Typography
           variant="lead"
           style={{ color: '#4178C6' }}
@@ -615,97 +625,92 @@ const TestimonialSection = () => {
           Thousands of people give us 5 stars!
         </Typography>
         
-        <div className="mt-12 sm:mt-24 relative">
-          {/* Mobile View: Vertical Stack */}
-          <div className="block md:hidden">
-            <div className="grid grid-cols-1 gap-6 p-4 bg-gray-100">
-              {testimonialData.slice(0, showAll ? testimonialData.length : 2).map(({ name, position, image, testimonial, rating }) => (
-                <motion.div
-                  key={name}
-                  className="w-full h-auto text-white flex items-center justify-center rounded-lg shadow-md p-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <TestimonialCard
-                    name={name}
-                    position={position}
-                    image={image}
-                    testimonial={testimonial}
-                    rating={rating}
-                  />
-                </motion.div>
-              ))}
-            </div>
-            
-            {/* View More Button - Only on mobile */}
-            {testimonialData.length > 2 && (
-              <div className="mt-8 flex justify-center">
-                <motion.button
-                  onClick={() => setShowAll(!showAll)}
-                  className="text-[#014AB2] font-medium text-sm border-2 border-[#014AB2] rounded-full px-6 py-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {showAll ? 'Show Less' : 'View More'}
-                </motion.button>
-              </div>
-            )}
-          </div>
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button 
+            onClick={() => scrollTestimonials('prev')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 bg-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 hidden md:block"
+            aria-label="Previous testimonials"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#014AB2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            onClick={() => scrollTestimonials('next')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 bg-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 hidden md:block"
+            aria-label="Next testimonials"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#014AB2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
 
-          {/* Desktop View: Horizontal Scroll */}
-          <div className="hidden md:block">
-            <div className="flex overflow-x-auto space-x-4 p-4 bg-gray-100 testimonial-scroll scrollbar-hide">
-              {testimonialData.map(({ name, position, image, testimonial, rating }) => (
-                <motion.div
-                  key={name}
-                  className="flex-shrink-0 min-w-[300px] h-auto text-white flex items-center justify-center rounded-lg shadow-md p-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <TestimonialCard
-                    name={name}
-                    position={position}
-                    image={image}
-                    testimonial={testimonial}
-                    rating={rating}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Get a Quote Button */}
-          <div className="mt-12 flex justify-center">
-            <motion.div
-              animate={{ 
-                y: [0, -8, 0]
-              }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <Button 
-                variant="filled" 
-                style={{
-                  backgroundColor: "#014ab2",
-                  borderRadius: "30px",
-                  padding: "0.75rem 2rem",
-                  boxShadow: "0 4px 14px rgba(1, 74, 178, 0.3)",
-                }}
-                className="text-sm sm:text-base hover:shadow-lg hover:bg-[#013A8F] transform hover:-translate-y-1 transition-all duration-300"
+          {/* Testimonials Container with Horizontal Scroll */}
+          <div 
+            ref={testimonialRef}
+            className="flex overflow-x-auto scrollbar-hide gap-6 scroll-smooth snap-x snap-mandatory"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
+            {testimonialData.map(({ name, position, image, testimonial, rating }) => (
+              <motion.div
+                key={name}
+                className="flex-none w-full md:w-[calc(33.333%-1rem)] bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center snap-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
               >
-                Get a Quote
-              </Button>
-            </motion.div>
+                <img src={image} alt={name} className="w-16 h-16 rounded-full mb-4" />
+                <Typography variant="h5" className="font-bold text-[#014AB2] mb-2">{name}</Typography>
+                <Typography className="text-gray-600 text-sm mb-2">{position}</Typography>
+                <Typography className="text-gray-700 text-sm">{testimonial}</Typography>
+                <div className="mt-2">
+                  {'⭐'.repeat(rating)}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Scroll Progress Indicator */}
+          <div className="mt-6 flex justify-center gap-2">
+            <div className="h-1 bg-[#014AB2]/10 rounded-full w-40">
+              <motion.div 
+                className="h-full bg-[#014AB2] rounded-full"
+                style={{
+                  width: testimonialRef.current 
+                    ? `${(testimonialRef.current.scrollLeft / (testimonialRef.current.scrollWidth - testimonialRef.current.clientWidth)) * 100}%`
+                    : "0%"
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Floating Quote Button */}
+      <motion.button
+        className="fixed bottom-8 right-8 bg-[#014AB2] text-white px-6 py-3 rounded-full shadow-lg z-50 font-medium text-sm"
+        whileHover={{ 
+          scale: 1.05,
+          boxShadow: "0 10px 25px rgba(1,74,178,0.3)",
+        }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20
+        }}
+      >
+        Get a Quote
+      </motion.button>
     </section>
   );
 };
@@ -758,7 +763,7 @@ const contents = [
     },
     {
       title: "Domestic Shipping",
-      description: "Get discounted rates with UPS, USPS, and more.",
+      description: "Get discounted rates with UPS,\nUSPS, and more.",
       imageUrl: "/img/truck-image.png", // Replace with your image path
     },
     // Add more features as needed
@@ -819,7 +824,7 @@ const contents = [
 
 
 
-        <section className="mt-10 px-4 pb-10 pt-10">
+        <section className="mt-0 px-4 pb-10 pt-16 spacing-4">
           {/* Mobile View */}
           <div className="block md:hidden">
             <div className="container mx-auto">
@@ -842,7 +847,7 @@ const contents = [
                 />
 
                 {/* Content Container */}
-                <div className="relative z-20 w-full p-6 pt-10 pb-8">
+                <div className="relative z-20 w-full p-6 pt-6 pb-8">
                   {/* Image positioned at top */}
                   {/* <motion.div
                     className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48"
@@ -901,7 +906,7 @@ const contents = [
           {/* Desktop View - Keep existing code unchanged */}
           <div className="hidden md:block">
             <div className="container mx-auto">
-              <div className="relative mt-32 flex flex-wrap items-center">
+              <div className="relative mt-50 flex flex-wrap items-center">
                 {/* Overlapping Image with Animation */}
                 <motion.div
                   className="absolute left-20 bottom-0 z-30 -ml-12 -mt-12 w-1/3 md:-ml-16 md:-mt-16 lg:-ml-0 lg:-mt-20"
@@ -1119,8 +1124,6 @@ const contents = [
             <motion.img
               src="/img/arrow-up.svg"
               alt="arrow"
-
-              
               className="w-46 relative bottom-12" // Adjusted positioning
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -1149,7 +1152,7 @@ const contents = [
           </div>
         </section>
 
-      <section className="px-4 pt-10 pb-20 flex flex-col items-center">
+      <section className="px-4 pt-10 pb-0 flex flex-col items-center spacing-4">
         <div className="container mx-auto text-center">
         <Typography
             variant="h3"
