@@ -65,8 +65,8 @@ const HeroSection = () => {
         <div 
           className="absolute top-0 right-0 w-1/2 h-[80%] bg-contain bg-no-repeat bg-right-top z-[1]"
           style={{ 
-            backgroundImage: 'url("/img/homepage-vector.svg")',
-            opacity: 0.6
+            backgroundImage: 'url("/img/homepage-vector-old.svg")',
+            opacity: 1.0
           }}
         />
         {/* Delivery Boy Image Overlay */}
@@ -102,7 +102,6 @@ const HeroSection = () => {
               alt="Delivery Boy Hand"
               className="w-full h-full object-contain filter brightness-105 contrast-105 saturate-105 drop-shadow-2xl"
               style={{
-                // filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))',
                 mixBlendMode: 'normal',
                 maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
                 WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
@@ -113,9 +112,9 @@ const HeroSection = () => {
         <div className="absolute top-0 h-full w-full bg-white/5 z-[2]"></div>
 
         <div className="max-w-8xl container relative mx-auto z-[15]">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start px-6">
             {/* Heading Section */}
-            <div className="w-full px-6 mb-6 self-start">
+            <div className="w-full mb-6">
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -128,7 +127,11 @@ const HeroSection = () => {
                   style={{ color: "#014AB2" }}
                   className="mb-6 mt-20 font-black text-5xl md:text-6xl text-left"
                 >
-                  Trusted Logistics Partner
+                  <span className="text-sm text-[#014AB2]">Your Trusted</span>
+                  <br />
+                  <span className="text-black">International</span>
+                  <br />
+                  <span className="text-[#014AB2]">Parcel Delivery Partner</span>
                 </Typography>
               </motion.div>
               <motion.div
@@ -139,7 +142,7 @@ const HeroSection = () => {
                 className="max-w-2xl"
               >
                 <Typography
-                  style={{ color: "#4178C6" }}
+                  style={{ color: "#000000" }}
                   className="opacity-80 text-xl md:text-2xl leading-relaxed mb-6 text-left"
                 >
                   Ensure your parcels reach their destination safely and on time.
@@ -148,9 +151,9 @@ const HeroSection = () => {
             </div>
 
             {/* Form Section */}
-            <div className="w-full max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-7xl">
               <motion.div
-                className="bg-white/30 backdrop-blur-md p-6 border border-white/50 shadow-xl rounded-2xl w-full"
+                className="bg-white backdrop-blur-md p-6 border border-white/50 shadow-xl rounded-2xl w-full"
                 whileHover={{ boxShadow: "0 20px 40px rgba(1, 74, 178, 0.1)" }}
               >
                 <Typography
@@ -556,7 +559,6 @@ const HeroSection = () => {
     </>
   );
 };
-
 
 
 
@@ -1251,64 +1253,24 @@ const contents = [
 
       <section className="px-4 pt-10 pb-0 flex flex-col items-center spacing-4">
         <div className="container mx-auto text-center">
-        <Typography
+          <Typography
             variant="h3"
             style={{ color: '#014AB2' }}
             className="mb-8 font-black text-center lg:center "
-        >
+          >
             Here are the countries we ship to!
-        </Typography>
-          {/* <PageTitle section="Countries we serve" heading="Here are the countries we ship to!" /> */}
+          </Typography>
         </div>
 
         <div className="mt-10 mb-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-20">
-          {/* Card 1 */}
-          <div className="card-container">
-            <div className="card">
-              <div className="front">
-                <img src="/img/india-flag.png" alt="Front Side Image" />
-              </div>
-              <div className="back">
-                <img src="/img/canada-flag.png" alt="Back Side Image" />
+          {/* Flag Cards */}
+          {["/img/india-flag.png", "/img/gb-flag.png", "/img/brazil-flag.png", "/img/srilanka-flag.png"].map((flag, index) => (
+            <div className="card-container" key={index}>
+              <div className="card">
+                <img src={flag} alt={`Flag ${index + 1}`} className="transition-opacity duration-500" />
               </div>
             </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="card-container">
-            <div className="card">
-              <div className="front">
-                <img src="/img/gb-flag.png" alt="Front Side Image" />
-              </div>
-              <div className="back">
-                <img src="/img/hm-flag.png" alt="Back Side Image" />
-              </div>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="card-container">
-            <div className="card">
-              <div className="front">
-                <img src="/img/brazil-flag.png" alt="Front Side Image" />
-              </div>
-              <div className="back">
-                <img src="/img/dk-flag.png" alt="Back Side Image" />
-              </div>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="card-container">
-            <div className="card">
-              <div className="front">
-                <img src="/img/srilanka-flag.png" alt="Front Side Image" />
-              </div>
-              <div className="back">
-                <img src="/img/nepal-flag.png" alt="Back Side Image" />
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -1384,3 +1346,7 @@ const contents = [
 }
 
 export default Home;
+
+
+
+
