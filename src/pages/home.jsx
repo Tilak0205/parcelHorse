@@ -862,7 +862,7 @@ const contents = [
     },
     {
       title: "Domestic Shipping",
-      description: "Get discounted rates with UPS,\nUSPS, and more.",
+      description: "Get discounted rates with UPS,\nUSPS, and_more.",
       imageUrl: "/img/truck-image.png", // Replace with your image path
     },
     // Add more features as needed
@@ -1251,26 +1251,117 @@ const contents = [
           </div>
         </section>
 
-      <section className="px-4 pt-10 pb-0 flex flex-col items-center spacing-4">
+      <section className="px-4 pt-10 pb-10 flex flex-col items-center spacing-4">
         <div className="container mx-auto text-center">
           <Typography
             variant="h3"
             style={{ color: '#014AB2' }}
-            className="mb-8 font-black text-center lg:center "
+            className="mb-8 font-black text-center"
           >
             Here are the countries we ship to!
           </Typography>
         </div>
 
-        <div className="mt-10 mb-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-20">
-          {/* Flag Cards */}
-          {["/img/india-flag.png", "/img/gb-flag.png", "/img/brazil-flag.png", "/img/srilanka-flag.png"].map((flag, index) => (
-            <div className="card-container" key={index}>
-              <div className="card">
-                <img src={flag} alt={`Flag ${index + 1}`} className="transition-opacity duration-500" />
-              </div>
-            </div>
-          ))}
+        <div className="w-full max-w-6xl mx-auto overflow-hidden">
+          <motion.div 
+            className="flex justify-center gap-8 px-4"
+            animate={{
+              x: [-100, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          >
+            {[
+              { flag: "/img/india-flag.png", name: "India" },
+              { flag: "/img/gb-flag.png", name: "United Kingdom" },
+              { flag: "/img/brazil-flag.png", name: "Brazil" },
+              { flag: "/img/srilanka-flag.png", name: "Sri Lanka" },
+              { flag: "/img/australia-flag.png", name: "Australia" },
+              { flag: "/img/canada-flag.png", name: "Canada" },
+              { flag: "/img/usa-flag.png", name: "USA" },
+              // { flag: "/img/germany-flag.png", name: "Germany" },
+              // { flag: "/img/france-flag.png", name: "France" },
+              // { flag: "/img/spain-flag.png", name: "Spain" },
+              // { flag: "/img/italy-flag.png", name: "Italy" },
+              // { flag: "/img/japan-flag.png", name: "Japan" }
+            ].map((country, index) => (
+              <motion.div
+                key={country.name}
+                className="flex-none"
+                style={{ width: '150px' }}
+                animate={{
+                  scale: [1, 1.02, 1],
+                  transition: {
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.2,
+                    ease: "easeInOut"
+                  }
+                }}
+              >
+                <div className="bg-white rounded-lg overflow-hidden">
+                  <div className="aspect-[4/3] w-full">
+                    <img
+                      src={country.flag}
+                      alt={`${country.name} flag`}
+                      className="w-full h-full object-contain p-2"
+                    />
+                  </div>
+                  <div className="py-2 text-center bg-white">
+                    <Typography
+                      variant="small"
+                      className="text-[#014AB2] text-sm font-medium"
+                    >
+                      {country.name}
+                    </Typography>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+            {/* Duplicate first few items to create seamless loop */}
+            {[
+              { flag: "/img/india-flag.png", name: "India" },
+              { flag: "/img/gb-flag.png", name: "United Kingdom" },
+              { flag: "/img/brazil-flag.png", name: "Brazil" },
+              { flag: "/img/srilanka-flag.png", name: "Sri Lanka" }
+            ].map((country, index) => (
+              <motion.div
+                key={`duplicate-${country.name}`}
+                className="flex-none"
+                style={{ width: '150px' }}
+                animate={{
+                  scale: [1, 1.02, 1],
+                  transition: {
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: (index + 12) * 0.2,
+                    ease: "easeInOut"
+                  }
+                }}
+              >
+                <div className="bg-white rounded-lg overflow-hidden">
+                  <div className="aspect-[4/3] w-full">
+                    <img
+                      src={country.flag}
+                      alt={`${country.name} flag`}
+                      className="w-full h-full object-contain p-2"
+                    />
+                  </div>
+                  <div className="py-2 text-center bg-white">
+                    <Typography
+                      variant="small"
+                      className="text-[#014AB2] text-sm font-medium"
+                    >
+                      {country.name}
+                    </Typography>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

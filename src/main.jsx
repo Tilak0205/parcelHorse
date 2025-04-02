@@ -15,17 +15,18 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-tailwind/react";
-import "../public/css/tailwind.css";
-import "@fontsource/inter"; // Defaults to 400 weight
-import "@fontsource/inter"; // If you want variable weights
-
+import "@fontsource/inter";
+import "@/css/tailwind.css";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>
 );
