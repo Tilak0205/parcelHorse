@@ -2,59 +2,16 @@ import React from "react";
 // import NavbarMenu from "@/components/ui/navbar-menu";
 import "@fontsource/inter"; // Loads Inter font
 import "/public/css/tailwind.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Card,
   CardBody,
-  CardHeader,
   Typography,
   Button,
-  IconButton,
-  Input,
-  Textarea,
-  Checkbox,
 } from "@material-tailwind/react";
-import { FaBox, FaTruckPickup, FaPlane, FaMapMarkerAlt } from "react-icons/fa";
-// import { FingerPrintIcon, UsersIcon } from "@heroicons/react/24/solid";
-import { PageTitle, Footer } from "@/widgets/layout";
-import { FeatureCard, TeamCard } from "@/widgets/cards";
-import { featuresData, teamData, contactData } from "@/data";
-import Carousel from 'better-react-carousel';
-import CarouselCard, { TeamCardCarousel } from '@/widgets/cards/carousel-card';
-import carouselData, { teamDataCarousel } from '@/data/carousel-data';
-import TestimonialCard from "@/widgets/cards/testimonial-card";
+import { Footer } from "@/widgets/layout";
 import testimonialData from "@/data/testimonial-data";
 import Navbar from "@/components/Navbar";
-
-
-const SelectWithInput = ({ label, selectOptions, inputPlaceholder }) => (
-  <motion.div 
-    className="space-y-2"
-    whileHover={{ scale: 1.02 }}
-    transition={{ type: "spring", stiffness: 400 }}
-  >
-    <label className="block text-[#014AB2] text-sm font-semibold mb-2">{label}</label>
-    <div className="flex gap-2">
-      <motion.select 
-        className="border-2 border-[#014AB2]/20 rounded-xl p-3 flex-grow bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium transition-all duration-300"
-        whileTap={{ scale: 0.98 }}
-      >
-        {selectOptions.map((option, index) => (
-          <option key={index} value={option.value} className="text-[#014AB2]">
-            {option.label}
-          </option>
-        ))}
-      </motion.select>
-      <motion.input
-        type="text"
-        placeholder={inputPlaceholder}
-        className="border-2 border-[#014AB2]/20 rounded-xl p-3 w-32 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
-        whileTap={{ scale: 0.98 }}
-      />
-    </div>
-  </motion.div>
-);
-
 
 const HeroSection = () => {
   return (
@@ -62,15 +19,15 @@ const HeroSection = () => {
       {/* Large Screen Layout */}
       <div className="hidden md:block relative flex h-screen content-center items-center justify-center pt-0 pb-32">
         {/* Background Vector Image */}
-        <div 
+        <div
           className="absolute top-0 right-0 w-1/2 h-[80%] bg-contain bg-no-repeat bg-right-top z-[1]"
-          style={{ 
+          style={{
             backgroundImage: 'url("/img/homepage-vector-old.svg")',
             opacity: 1.0
           }}
         />
         {/* Delivery Boy Image Overlay */}
-        <motion.div 
+        <motion.div
           className="absolute top-[-5%] right-[1%] w-[600px] h-[600px] z-[8]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -90,7 +47,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
         {/* Delivery Boy Hand Only Overlay */}
-        <motion.div 
+        <motion.div
           className="absolute top-[-5%] right-[1%] w-[600px] h-[600px] z-[20]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -314,15 +271,15 @@ const HeroSection = () => {
       {/* Small Screen Layout */}
       <div className="block md:hidden relative flex flex-col items-center justify-center pt-16 pb-32">
         {/* Background Vector Image for Mobile */}
-        <div 
+        <div
           className="absolute top-0 right-0 w-2/3 h-[80%] bg-contain bg-no-repeat bg-right-top z-[1]"
-          style={{ 
+          style={{
             backgroundImage: 'url("/img/homepage-vector.svg")',
             opacity: 0.6
           }}
         />
         {/* Mobile Delivery Boy Image Overlay */}
-        <motion.div 
+        <motion.div
           className="absolute top-[0%] right-[2%] w-[300px] h-[300px] z-[8]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -342,7 +299,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
         {/* Delivery Boy Hand Only Overlay Mobile */}
-        <motion.div 
+        <motion.div
           className="absolute top-[0%] right-[2%] w-[300px] h-[300px] z-[9]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -566,13 +523,13 @@ const RatesSection = () => {
   const [showAll, setShowAll] = React.useState(false); // State to manage "View More"
 
   const headings = [
-    "India", "Pakistan", "China", "USA", "Europe", "Nigeria", "Australia", 
+    "India", "Pakistan", "China", "USA", "Europe", "Nigeria", "Australia",
     "Bangladesh", "Canada", "Brazil", "Rwanda", "New Zealand"
   ];
 
   const contents = [
-    "from £4.75", "from £5.00", "from £13.00", "from £5.00", "from £4.75", 
-    "from £4.99", "from £4.00", "from £2.50", "from £5.00", "from £13.00", 
+    "from £4.75", "from £5.00", "from £13.00", "from £5.00", "from £4.75",
+    "from £4.99", "from £4.00", "from £2.50", "from £5.00", "from £13.00",
     "from £5.00", "from £7.00"
   ];
 
@@ -632,8 +589,8 @@ const RatesSection = () => {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   boxShadow: '0px 10px 20px rgba(0,0,0,0.1)',
                   rotate: [0, -2, 2, 0]
                 }}
@@ -665,7 +622,7 @@ const RatesSection = () => {
 // export RatesSection;
 
 const FieldGroup = ({ label, placeholder, selectOptions }) => (
-  <motion.div 
+  <motion.div
     className="space-y-2"
     whileHover={{ scale: 1.02 }}
     transition={{ type: "spring", stiffness: 400 }}
@@ -678,7 +635,7 @@ const FieldGroup = ({ label, placeholder, selectOptions }) => (
         className="border-2 border-[#014AB2]/20 rounded-xl p-3 flex-grow bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium placeholder:text-[#014AB2]/50 transition-all duration-300"
         whileTap={{ scale: 0.98 }}
       />
-      <motion.select 
+      <motion.select
         className="border-2 border-[#014AB2]/20 rounded-xl p-3 w-32 bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#014AB2] focus:border-transparent text-[#014AB2] font-medium transition-all duration-300"
         whileTap={{ scale: 0.98 }}
       >
@@ -705,7 +662,7 @@ const TestimonialSection = () => {
       });
     }
   };
-  
+
   return (
     <section className="px-4 pt-10 pb-0 relative">
       <div className="container mx-auto text-center">
@@ -723,10 +680,10 @@ const TestimonialSection = () => {
         >
           Thousands of people give us 5 stars!
         </Typography>
-        
+
         <div className="relative">
           {/* Navigation Arrows */}
-          <button 
+          <button
             onClick={() => scrollTestimonials('prev')}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 bg-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 hidden md:block"
             aria-label="Previous testimonials"
@@ -735,8 +692,8 @@ const TestimonialSection = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          
-          <button 
+
+          <button
             onClick={() => scrollTestimonials('next')}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 bg-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 hidden md:block"
             aria-label="Next testimonials"
@@ -747,7 +704,7 @@ const TestimonialSection = () => {
           </button>
 
           {/* Testimonials Container with Horizontal Scroll */}
-          <div 
+          <div
             ref={testimonialRef}
             className="flex overflow-x-auto scrollbar-hide gap-6 scroll-smooth snap-x snap-mandatory"
             style={{
@@ -779,10 +736,10 @@ const TestimonialSection = () => {
           {/* Scroll Progress Indicator */}
           <div className="mt-6 flex justify-center gap-2">
             <div className="h-1 bg-[#014AB2]/10 rounded-full w-40">
-              <motion.div 
+              <motion.div
                 className="h-full bg-[#014AB2] rounded-full"
                 style={{
-                  width: testimonialRef.current 
+                  width: testimonialRef.current
                     ? `${(testimonialRef.current.scrollLeft / (testimonialRef.current.scrollWidth - testimonialRef.current.clientWidth)) * 100}%`
                     : "0%"
                 }}
@@ -795,7 +752,7 @@ const TestimonialSection = () => {
       {/* Floating Quote Button */}
       <motion.button
         className="fixed bottom-8 right-8 bg-[#014AB2] text-white px-6 py-3 rounded-full shadow-lg z-50 font-medium text-sm"
-        whileHover={{ 
+        whileHover={{
           scale: 1.05,
           boxShadow: "0 10px 25px rgba(1,74,178,0.3)",
         }}
@@ -851,8 +808,8 @@ const contents = [
       },
     },
   };
-  
-  
+
+
 
   const featuresData = [
     {
@@ -868,14 +825,14 @@ const contents = [
     // Add more features as needed
   ];
 
-  
+
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
-  
-  
+
+
   const stepsData = [
     {
       step: "1",
@@ -903,20 +860,20 @@ const contents = [
     },
   ];
 
-  
+
 
   return (
     <>
-    
+
     <>
       <Navbar />
 
-      
+
 
       {/* Second Section: Form */}
-      
+
     </>
-      
+
     <HeroSection />
 
     <RatesSection />
@@ -929,7 +886,7 @@ const contents = [
             <div className="container mx-auto">
               <div className="relative flex flex-col items-center">
                 {/* Mobile Background - Simplified version */}
-                <div 
+                <div
                   className="absolute inset-0 bg-[#4178C6] rounded-3xl"
                   style={{
                     borderBottomRightRadius: '120px',
@@ -953,7 +910,7 @@ const contents = [
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
-                    animate={{ 
+                    animate={{
                       y: [-60, -50, -60],
                       filter: [
                         'drop-shadow(-5px 5px 5px rgba(0,0,0,0.2))',
@@ -961,7 +918,7 @@ const contents = [
                         'drop-shadow(-5px 5px 5px rgba(0,0,0,0.2))'
                       ]
                     }}
-                    transition={{ 
+                    transition={{
                       duration: 3,
                       repeat: Infinity,
                       ease: "easeInOut"
@@ -1011,7 +968,7 @@ const contents = [
                   className="absolute left-20 bottom-0 z-30 -ml-12 -mt-12 w-1/3 md:-ml-16 md:-mt-16 lg:-ml-0 lg:-mt-20"
                   initial={{ opacity: 1, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  animate={{ 
+                  animate={{
                     x: [-20, 20, -20],
                     filter: [
                       'drop-shadow(-10px 10px 10px rgba(0,0,0,0.3))',
@@ -1019,7 +976,7 @@ const contents = [
                       'drop-shadow(-10px 10px 10px rgba(0,0,0,0.3))'
                     ]
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 4,
                     repeat: Infinity,
                     ease: "easeInOut"
@@ -1133,9 +1090,9 @@ const contents = [
                 </div>
                 {index < 3 && (
                   <div className="flex justify-center my-4">
-                    <img 
-                      src="/img/arrow-down.svg" 
-                      alt="arrow" 
+                    <img
+                      src="/img/arrow-down.svg"
+                      alt="arrow"
                       className="w-8 h-8 opacity-50"
                     />
                   </div>
@@ -1263,7 +1220,7 @@ const contents = [
         </div>
 
         <div className="w-full max-w-6xl mx-auto overflow-hidden">
-          <motion.div 
+          <motion.div
             className="flex justify-center gap-8 px-4"
             animate={{
               x: [-100, 0],
@@ -1370,8 +1327,8 @@ const contents = [
           <div className="container mx-auto">
             {/* Page Title with responsive text sizes */}
             <div className="text-center mb-6 sm:mb-10">
-              <Typography 
-                variant="h6" 
+              <Typography
+                variant="h6"
                 className="text-blue-500 font-semibold text-xs xs:text-sm sm:text-base md:text-lg mb-2"
               >
                 We have different services!
@@ -1406,13 +1363,13 @@ const contents = [
                     {/* Card Content - Improved layout for very small screens */}
                     <CardBody className="p-3 xs:p-4 sm:p-8 text-left relative z-10">
                       <div className="pr-8 xs:pr-12 sm:pr-24 md:pr-32">
-                        <Typography 
-                          variant="h3" 
+                        <Typography
+                          variant="h3"
                           className="mb-1 xs:mb-2 sm:mb-4 font-bold text-[#fffc00] text-sm xs:text-base sm:text-xl md:text-2xl"
                         >
                           {title}
                         </Typography>
-                        <Typography 
+                        <Typography
                           className="font-normal text-white text-xs xs:text-sm sm:text-base md:text-lg line-clamp-3 xs:line-clamp-none"
                         >
                           {description}
@@ -1428,7 +1385,7 @@ const contents = [
 
 
       <TestimonialSection />
-      
+
       <div className="bg-transparent">
         <Footer />
       </div>
